@@ -5,6 +5,7 @@ import { fetchVersesAction } from '../Bible/fetchVersesAction'; //todo: for deve
 import NotesMenu from '../Menu';
 import VersesList from '../Bible';
 import Notes from '../Notes';
+import Bible from "../Bible/Bible";
 
 let search = window.location.search;
 let numDay;
@@ -32,11 +33,7 @@ class App extends React.Component{
   }
 
   render() {
-    if(!this.state) {return <div style={{
-      display: 'flex', justifyContent: 'center', alignItems: 'center',
-      width: '100%', height: window.innerHeight,
-      fontSize: 18, color: 'red',
-    }}>{errorMessage}</div>}
+    if(!this.state) {return <Bible/>}
 
     return (
       <div>

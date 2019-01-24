@@ -223,3 +223,34 @@ input {
     margin-right: auto;
 }
 /*<-@-@*/
+
+.bible {
+    display: flex;
+    flex-direction: column;
+}
+
+.book {
+    width: 25%;
+    margin-top: 10px;
+    margin-left: 5%;
+    padding: 10px;
+    border: 1px solid rgba(9, 8, 32, 0.51);
+    background-color: #d6dde5;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+
+.chapter {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.chapterContainer {
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+}

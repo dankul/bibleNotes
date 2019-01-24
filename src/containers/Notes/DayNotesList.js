@@ -10,7 +10,7 @@ class DayNotesList extends Component {
           return(
             <div key={noteId} className={'note'}>
                 <div className={'noteData'}>
-                    <div className={'noteTitle'}>{verse.bookTitle}  {verse.book}:{verse.chapter}</div>
+                    <div className={'noteTitle'}>{verse.bookTitle}  {verse.book}:{verse.chapterList}</div>
                     <div className={'tags'}>
                         {note.tags.map((tag) => {
                             return( tag + '  ')

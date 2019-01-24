@@ -47,6 +47,7 @@ class NotesMenu extends React.Component{
                 {this.state.isLogin ? <Menu.Item active={this.state.activeItem === 'isNote'} onClick={() => {this.handleItemClick('isNote')}}>Заметки</Menu.Item> : null}
                 {this.state.isLogin ? <Menu.Item active={this.state.activeItem === 'isRead'} onClick={() => {this.handleItemClick('isRead')}}>Чтение</Menu.Item> : null}
                 {this.state.isLogin ? <Menu.Item active={this.state.activeItem === 'presenter'} onClick={() => {this.handleItemClick('presenter')}}>План</Menu.Item> : null}
+                {this.state.isLogin ? <Menu.Item active={this.state.activeItem === 'bible'} onClick={() => {this.handleItemClick('bible')}}>Библия</Menu.Item> : null}
             </Menu>
         )
     }

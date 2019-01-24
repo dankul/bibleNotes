@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchVersesAction } from '../Bible/fetchVersesAction'; //todo: for develop mode -dev
 
+
 class VersesList extends React.Component{
   constructor(props) {
     super(props);
@@ -21,7 +22,7 @@ class VersesList extends React.Component{
         {this.state.verses.map((chapter) => {
           return (
             <div  key={"chapterContainer" + chapter[1]} style={{marginLeft: 30}}>
-              <div key={"chapter" + chapter[0]}>Глава: {chapter[0]}</div>
+              <div key={"chapterList" + chapter[0]}>Глава: {chapter[0]}</div>
               <div key={"verseMainContainer" + chapter[0]}>{
                 Object.keys(chapter).map((verseId) => {
                   if(verseId === '0') {return}

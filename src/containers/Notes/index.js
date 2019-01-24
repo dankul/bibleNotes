@@ -5,7 +5,8 @@ import { withAuthenticator } from 'aws-amplify-react';
 import { Auth } from 'aws-amplify';
 import VersesList from '../Bible';
 import WeekNotes from "./WeekNotes";
-import Calendar from  '../Calendar/Calendar'
+import Calendar from  '../Calendar/Calendar';
+import Bible from '../Bible/Bible'
 // import {toLoginAction} from "../Menu/toLoginAction";
 // import {setMenuItemAction} from "../Menu/setMenuItemAction";
 
@@ -64,6 +65,8 @@ class Notes extends React.Component{
         return (<VersesList/>);
       case 'presenter' :
         return(<Calendar/>);
+      case 'bible' :
+        return (<Bible/>);
       default:
         return(<WeekNotes/>);
     }

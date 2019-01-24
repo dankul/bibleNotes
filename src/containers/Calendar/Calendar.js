@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import moment from 'moment';
@@ -91,7 +91,6 @@ class Calendar extends React.Component {
                                     > {weekId} </div>
                                     <div key={'dayId' + weekId} className={'dayContainer'}>
                                         {dayList.map((day, dayId) => {
-                                            console.log(this.state.presenters[weekId]);
                                             return (
                                                 <div key={dayId} className={'day'}>
                                                     <div className={'dayDate'}> {day.date} </div>
