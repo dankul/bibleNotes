@@ -1,4 +1,5 @@
 import { FETCH_VERSES } from '../containers/Bible/fetchVersesAction';
+import { FETCH_CHAPTER } from '../containers/Bible/fetchChapterAction'
 import { TO_LOGIN } from '../containers/Menu/toLoginAction';
 import { MENU_ITEM } from "../containers/Menu/setMenuItemAction";
 import { PUT_PRESENTER } from "../containers/Calendar/putPresenterAction";
@@ -12,6 +13,7 @@ const initialState = {
   presenters: {},
   isLogin: false,
   menuItemName:'',
+  bibleText: {}
 };
 
 export default (state = initialState, action) => {
@@ -23,13 +25,17 @@ export default (state = initialState, action) => {
 
       return { ...state };
 
+    case FETCH_CHAPTER:
+      state.bibleText = action.payload;
+
+      return { ...state };
+
     case TO_LOGIN:
       state.isLogin = action.payload;
 
       return { ...state };
 
     case MENU_ITEM:
-
       state.menuItemName = action.payload;
 
       return { ...state };

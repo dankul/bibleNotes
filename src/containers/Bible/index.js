@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchVersesAction } from '../Bible/fetchVersesAction'; //todo: for develop mode -dev
-
+import { fetchVersesAction } from '../Bible/fetchVersesAction';
 
 class VersesList extends React.Component{
   constructor(props) {

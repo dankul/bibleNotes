@@ -1,5 +1,9 @@
 import React from 'react';
 import AllBible from './synodal'
+import { bindActionCreators } from "redux";
+import { fetchChapterAction } from "../Bible/fetchChapterAction";
+import { connect } from "react-redux";
+import DisplayChapter from "./DisplayChapter";
 
 class Bible extends React.Component {
     constructor(props) {
@@ -8,14 +12,19 @@ class Bible extends React.Component {
         this.state = {
             bibleStructure: this.bibleForce(),
             displayedBook: '',
-            bibleLink: {
-                bookId: '',
-                chapterId: ''
-            }
+            bibleLink: {}
         };
 
         this.bibleForce = this.bibleForce.bind(this);
         this.displayBible = this.displayBible.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            ...this.state,
+            ...nextProps.notesReducer,
+        })
+
     }
 
     bibleForce () {
@@ -90,7 +99,7 @@ class Bible extends React.Component {
 
         let bibleStructure = {};
 
-        Object.keys(AllBible).forEach((bibleNum, id, bible) => {
+        Object.keys(AllBible).forEach((bibleNum) => {
             bibleStructure[bibleNum] = {
                 bibleBookName: bibleBookName[bibleNum],
                 chapterList: []
@@ -152,7 +161,8 @@ class Bible extends React.Component {
                                                         ...this.state.bibleLink,
                                                         chapterId: chapterNum
                                                     }
-                                                })
+                                                });
+                                                this.props.fetchChapterAction({bookId: this.state.bibleLink.bookId, chapterId: chapterNum});
                                             }}
                                         >
                                             {chapterNum}
@@ -168,13 +178,24 @@ class Bible extends React.Component {
     }
 
     render() {
-        console.log(this.state.bibleLink);
         return (
             <div className={'bible'}>
-                {this.displayBible()}
+                {this.state.bibleText ? <DisplayChapter/> : this.displayBible()}
             </div>
         )
     }
 }
 
-export default Bible;
+function mapStateToProps(state) {
+    return {
+        notesReducer: state.notesReducer,
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        fetchChapterAction,
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Bible);

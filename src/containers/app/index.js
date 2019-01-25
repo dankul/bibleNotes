@@ -6,6 +6,7 @@ import NotesMenu from '../Menu';
 import VersesList from '../Bible';
 import Notes from '../Notes';
 import Bible from "../Bible/Bible";
+import DisplayChapter from "../Bible/DisplayChapter";
 
 let search = window.location.search;
 let numDay;
@@ -38,7 +39,8 @@ class App extends React.Component{
     return (
       <div>
         <NotesMenu />
-        {this.state.isLogin ? <Notes /> : <VersesList />}
+
+        {this.state.isLogin ? <Notes /> : this.state.bibleText ? <DisplayChapter/> : <Bible/>}
       </div>
     )
   }
