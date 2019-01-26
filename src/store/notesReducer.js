@@ -13,7 +13,7 @@ const initialState = {
   presenters: {},
   isLogin: false,
   menuItemName:'',
-  bibleText: {}
+  bibleText: undefined
 };
 
 export default (state = initialState, action) => {

@@ -39,8 +39,7 @@ class App extends React.Component{
     return (
       <div>
         <NotesMenu />
-
-        {this.state.isLogin ? <Notes /> : this.state.bibleText ? <DisplayChapter/> : <Bible/>}
+        {this.state.isLogin ? <Notes /> : this.state.verses[0] ? <VersesList /> : this.state.bibleText ? <DisplayChapter/> : <Bible/>}
       </div>
     )
   }
